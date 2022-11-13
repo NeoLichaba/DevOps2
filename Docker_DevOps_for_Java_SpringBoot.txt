@@ -388,4 +388,17 @@ Section 5: Docker Java Spring Boot Todo Web Application
   * Create deployable unit 
   - Run and build
   - Create package - war file should be created and placed in target folder 
-  - 
+
+26. Create Docker Image for Spring Boot Todo Web Application
+-------------------------------------------------------------------------------
+
+- Consider what you need to change to create project?
+  a) Create Dockerfile
+	FROM tomcat:8.0.51-jre8-alpine - base image, deploy war file into tomcat
+	EXPOSE 8080 - app running on port 8080:8080
+	RUN rm -rf /usr/local/tomcat/webapps/* - remove everything from web apps folder previousy deployed and copying into... 
+	COPY target/*.war /usr/local/tomcat/webapps/ROOT.war - war copied into image as root - usr/local/tomcat/webapps
+	CMD ["catalina.sh","run"] - execute using shell file to launch tomcat
+	
+	- plugin added into pom - spotify dockerfile maven plugin
+
