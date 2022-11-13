@@ -401,4 +401,23 @@ Section 5: Docker Java Spring Boot Todo Web Application
 	CMD ["catalina.sh","run"] - execute using shell file to launch tomcat
 	
 	- plugin added into pom - spotify dockerfile maven plugin
+ 	- war file built, docker image built 
+	- docker run -p 8080:8080 in28min/todo-web-application-h2:0.0.1-SNAPSHOT
+	- launch web app in local machine using docker 
 
+27. Understanding ENTRYPOINT, CMD, COPY and ADD instructions
+--------------------------------------------------------------------------------
+
+COPY vs. ADD
+--------------------------------------------------------------------------------
+- COPY - allows you to copy files, directories into container image. Can't specify URL
+- ADD - copy local file, directory and specify URL to download and copy it to container image
+      - can unzip archive if in a specific format
+
+CMD vs. ENTRYPOINT
+---------------------------------------------------------------------------------
+- run docker run -p 8080:8080 in28min/todo-web-application-h2:0.0.1-SNAPSHOT ping gooogle.com
+- google.com is pinged - default parameteres in CMD are overriden with whatever command you have configured
+- CMD - all specifies in command is what is passed to container as arguments
+- ENTRYPOINT - way of making container executable, entrypoint cant be overriden
+  - use --entrypoint to override
