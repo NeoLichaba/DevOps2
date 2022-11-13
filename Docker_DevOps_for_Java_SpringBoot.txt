@@ -1,8 +1,11 @@
 7 November 2022
 ------------------------------
 
+Section 1 - Introduction 
+-----------------------------------
+
 1. Install Docker
--------------------------------
+------------------------------------
 
 I encountered error when starting up Docker. The error read:
 
@@ -353,3 +356,36 @@ ENTRYPOINT ["java","-cp","app:app/lib/*","com.in28minutes.rest.webservices.restf
 - Dockerfile specifies instructions to create an image
 - External creation of dockerfile image is used as gives one control over the instructions
 
+
+**************************************************************************
+Section 5: Docker Java Spring Boot Todo Web Application
+***************************************************************************
+
+25. - Setting up Spring Boot 2 in Local environment
+---------------------------------------------------------------------------
+
+- Application is a Productivity Tracker/To Do List
+- H2 Console (in-memory database) used in backend 
+- Set JDBC URL to: jdbc:h2:mem:testdb
+- Web application secured using Spring security, built using SpringBoot, using JPA and Hibernate to talk to the DB
+- in pom, packaging is war - exclude Tom Cat, automatically included in starter web dev
+- running as a war file, extends to SpringBootServletInitializer;
+- SpringBootServletInitializer - web app runs Spring application from traditional WAR deployment
+   - override config method
+   - deployed as WAR file
+- Controllers - 
+	- Welcome, 
+	- Logout, 
+	- ToDo - talks to Todo repo which extends JPA repo, using a Todo bean
+ 	       - declared as an entity and primary key defined for it: @Id and @GeneratedValue
+               - ToDoRepo extends JPARepo. JPARepo is provided by SpringData JPA - talks to DBs
+	- ErrorController
+- JPA and Hibernate -
+- Security config, configured by Spring Security Framework and is configured in pom file
+  - use in-mem authentication - in28 mins and dummy (p/wd)
+  - everybody to access login and H2 console and only users which have role user; those with role of user can access ToDo URLs
+- To deploy app:
+  * Create deployable unit 
+  - Run and build
+  - Create package - war file should be created and placed in target folder 
+  - 
