@@ -316,6 +316,7 @@ ENTRYPOINT ["java","-cp","app:app/lib/*","com.in28minutes.rest.webservices.restf
 - pick up many aspects from cache = good so when you push to docker hub - all images are pushed out
 - only changed parts pushed to registry
 
+
 22. Using JIB Plugin to create Docker Images
 -------------------------------------------------------------------
 
@@ -326,6 +327,7 @@ ENTRYPOINT ["java","-cp","app:app/lib/*","com.in28minutes.rest.webservices.restf
 - Maven plugin is responsible for integrating the building of image with the Maven build process. 
 - instructions are specified in the Dockerfile and the Spotify Maven plugin
 - Other plugins that help with building images for your applications
+
 - JIB - Mvn plugin for building Docker and OCI images for Java apps
       - no need for Dockerfile
       - current timestamps/creation time = NB
@@ -338,4 +340,16 @@ ENTRYPOINT ["java","-cp","app:app/lib/*","com.in28minutes.rest.webservices.restf
       - JIB uses distroless Java, dependencies are copied, resources and the classes
       - docker run -p 8080:8080 01-hello-world-rest-api:0.0.1-SNAPSHOT
       - Java specific
+      - config tags, jvm options, main class, port for image
+
 - OCI - Open container initiative
+    
+  
+23. Using Fabric8 Docker Maven Plugin to create Docker Images
+-----------------------------------------------------------------------
+
+- 1st Maven plugin to integrate well with Dockerfile
+- provides it's own config syntax used to create a Dockerfile
+- Dockerfile specifies instructions to create an image
+- External creation of dockerfile image is used as gives one control over the instructions
+
