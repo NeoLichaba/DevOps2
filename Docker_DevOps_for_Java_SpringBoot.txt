@@ -421,3 +421,17 @@ CMD vs. ENTRYPOINT
 - CMD - all specifies in command is what is passed to container as arguments
 - ENTRYPOINT - way of making container executable, entrypoint cant be overriden
   - use --entrypoint to override
+
+28. Pushing SpringBoot Todo to Docker Hub
+---------------------------------------------------------------------------------
+
+- Launch Docker Hub
+- Change repo name to userId - won't be able to push to in28min
+- build package
+- docker images
+- docker push theone1neo/todo-web-application-h2:0.0.1-SNAPSHOT 
+  - refer to docker.io pushing image to docker hub
+- can add <goal>push</goal> and configure
+- open docker and you'll see repo created with details
+
+
