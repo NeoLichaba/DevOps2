@@ -315,3 +315,27 @@ ENTRYPOINT ["java","-cp","app:app/lib/*","com.in28minutes.rest.webservices.restf
 - pick up dependency in cache layer
 - pick up many aspects from cache = good so when you push to docker hub - all images are pushed out
 - only changed parts pushed to registry
+
+22. Using JIB Plugin to create Docker Images
+-------------------------------------------------------------------
+
+- Dockerfile Maven from Spotify
+- Dockerfile Maven Plugin from provides a clear separation between what the Dockerfile does and what the Spotify Dockerfile
+  Maven plugin does
+- Dockerfile is responsible for building the image and the Spotify Dockerfile
+- Maven plugin is responsible for integrating the building of image with the Maven build process. 
+- instructions are specified in the Dockerfile and the Spotify Maven plugin
+- Other plugins that help with building images for your applications
+- JIB - Mvn plugin for building Docker and OCI images for Java apps
+      - no need for Dockerfile
+      - current timestamps/creation time = NB
+      - images should be reproducible
+      - default time = epoch
+      - in execution, during package phase we are trying to run a Docker build. Now just building the image
+      - artifact id used as repo name and version is used as tag
+      - jib identifies dockerfile does not exist and identifies main class
+      - run docker history 01-hello-world-rest-api:0.0.1-SNAPSHOT
+      - JIB uses distroless Java, dependencies are copied, resources and the classes
+      - docker run -p 8080:8080 01-hello-world-rest-api:0.0.1-SNAPSHOT
+      - Java specific
+- OCI - Open container initiative
