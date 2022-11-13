@@ -281,3 +281,37 @@ In command prompt
  
 20. Create a generic reusable Dockerfile
 --------------------------------------------------------------
+
+- In Dockerfile, use wildcards
+- FROM openjdk:8-jdk-alpine
+  EXPOSE 8080
+  ADD target/*.jar app.jar - wild card and general name
+  ENTRYPOINT ["sh", "-c", "java -jar /hello-world-rest-api.jar"]
+- run in console - docker run -p 8080:8080 in28min/hello-world-rest-api:0.0.1-SNAPSHOT
+
+
+21. Improving Caching of Docker Images by Adding Libraries 
+-------------------------------------------------------------------
+
+- Creating cachable image layers
+- Maven dependency plugin installed - (unpack) splits jar into individual components
+
+FROM openjdk:8-jdk-alpine
+ARG DEPENDENCY=target/dependency - variable to dependency folder
+COPY ${DEPENDENCY}/BOOT-INF/lib /app/lib     - copy from one file image (app/lib)
+COPY ${DEPENDENCY}/META-INF /app/META-INF    - 
+COPY ${DEPENDENCY}/BOOT-INF/classes /app -    copy classes of file directly into folder
+ENTRYPOINT ["java","-cp","app:app/lib/*","com.in28minutes.rest.webservices.restfulwebservices.RestfulWebServicesApplication"]
+- run java main class 
+- cp = class path 
+- all libraries available in class path, run main class
+
+- run build: docker build -t in28min/hello-w-r-a:dockerfile1 .
+
+- image built 
+- cache layer taken and built 
+- lib directories use cache
+- take cache layer and adding onto it
+- pick up dependency in cache layer
+- pick up many aspects from cache = good so when you push to docker hub - all images are pushed out
+- only changed parts pushed to registry
