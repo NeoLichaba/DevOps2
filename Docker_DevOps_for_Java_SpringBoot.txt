@@ -435,3 +435,26 @@ CMD vs. ENTRYPOINT
 - open docker and you'll see repo created with details
 
 
+*********************************************************************************
+Section 6 - Docker with Java Spring Boot ToDo Web
+*********************************************************************************
+
+
+29. Code Review - ToDo Web Application to MySQL
+--------------------------------------------------------------------------------- 
+- Add a dependency on mysql-connected-Java
+- Use H2 database to run our test. Scope of H2 database changed to test
+- source/main/resources/application.properties - disable configuration for H2 and we are configuring the username, password, and the URL to connect
+  to the MySQL database. 
+- MySQL database will be run at URL and we will be configuring a username of todos-user and a password of dummy-todos
+- configuration in here is ddl-auto=update.
+- Using H2 database, whenever the application started, the database was created and when the application was stopped, the database was killed.
+- MySQL, don't want to lose the updates made = using a ddl-auto mode of update
+- at application startup, completes the tables defined in the database vs entities that are defined in your application. If they are matching, then it does not do anything.
+- If there is a mismatch, if there's a table missing, it would create that specific table. Existing data would be retained
+- source/test/resources/application.properties - application configuration for your unit tests
+- configuring H2 database for running our unit test. When we only have H2
+- dependency on the class path, these configuration is directly provided by default.
+- tell which one of those to use for
+- running unit tests and we are defining the fact that in unit tests, we would want to use H2
+- added in a @column annotation giving a name for that specific column in table description
