@@ -442,6 +442,7 @@ Section 6 - Docker with Java Spring Boot ToDo Web
 
 29. Code Review - ToDo Web Application to MySQL
 --------------------------------------------------------------------------------- 
+
 - Add a dependency on mysql-connected-Java
 - Use H2 database to run our test. Scope of H2 database changed to test
 - source/main/resources/application.properties - disable configuration for H2 and we are configuring the username, password, and the URL to connect
@@ -458,3 +459,18 @@ Section 6 - Docker with Java Spring Boot ToDo Web
 - tell which one of those to use for
 - running unit tests and we are defining the fact that in unit tests, we would want to use H2
 - added in a @column annotation giving a name for that specific column in table description
+
+30. Running MySQL as Docker Container 
+---------------------------------------------------------------------------------
+
+- downloads MySQL for Docker - docker run mysql:8.0.31
+- to set credentions for mysql db - docker run -d -e MYSQL_ROOT_PASSWORD=mysqlpassword -e MYSQL_DATABASE=todos -e MYSQL_USER=todos-user -e MYSQL_PASSWORD=sqltodos mysql:8.0.31
+- check if container started up - docker container list
+- in MySQL Shell - Connect to mysql server - connect todos-user:localhost:3306
+- unable to connect to server due to port not being mapped to localhost
+- map to localhost - expose/publish port when running docker command
+- remove image from docker command - docker rm <imageid>
+- publish port - docker run -d -e MYSQL_ROOT_PASSWORD=mysqlpassword -e MYSQL_DATABASE=todos -e MYSQL_USER=todos-user -e MYSQL_PASSWORD=sqltodos -p 3306:3306 mysql:8.0.31 
+- connect to mysql again from mysql shell
+- mysql launched as a docker container and connect from mysql shell
+- 
