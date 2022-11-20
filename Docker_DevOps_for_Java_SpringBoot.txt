@@ -473,4 +473,12 @@ Section 6 - Docker with Java Spring Boot ToDo Web
 - publish port - docker run -d -e MYSQL_ROOT_PASSWORD=mysqlpassword -e MYSQL_DATABASE=todos -e MYSQL_USER=todos-user -e MYSQL_PASSWORD=sqltodos -p 3306:3306 mysql:8.0.31 
 - connect to mysql again from mysql shell
 - mysql launched as a docker container and connect from mysql shell
+
+31. Connect Spring Boot ToDo Web App to MySQL on Local
+---------------------------------------------------------------------------------
+- check container running - docker container list
+- stop running container - docker stop <imageid>
+- remove running container - docker rm <imageid>
+- 
+
 - 
