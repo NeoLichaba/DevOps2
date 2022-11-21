@@ -166,8 +166,9 @@ docker run in28min/todo-rest-api-h2:1.0.0.RELEASE
 
 Section 3 - Importing Java Spring Boot Projects
 -----------------------------------------------------
-
+**********************************************************
 Section 4 - Importing Java Spring Boot Projects
+***********************************************************hnmn,m;lo
 -----------------------------------------------------
 
 14. Building Docker Image - manual approach (Eclipse)
@@ -479,6 +480,27 @@ Section 6 - Docker with Java Spring Boot ToDo Web
 - check container running - docker container list
 - stop running container - docker stop <imageid>
 - remove running container - docker rm <imageid>
-- 
+- use config to run sql as docker - docker run --detach --env MYSQL_ROOT_PASSWORD=dummypassword --env MYSQL_USER=todos-user --env MYSQL_PASSWORD=dummytodos --env MYSQL_DATABASE=todos --name mysql --publish 3306:3306 mysql:8.0.31 
+- connect to server in mysql shell - \connect todos-user
+- execute sqls
+- \sql, use todos; select * from todo;
+- start application up
 
-- 
+- to be continued
+
+********************************************************************************
+Section 7: Docker with Java Spring Boot React Full Stack
+********************************************************************************
+
+36. Exploring Full Stack Spring Boot React App
+--------------------------------------------------------------------------------
+
+- run application
+- in browser: http://localhost:8080/jpa/users/in28minutes/todos
+- provide JWT token to access resource - APIs are secured
+- POST request to localhost:8080/authenticate...input body
+- will receive http status and bearer token back
+- Access URL: GET request http://localhost:8080/jpa/users/in28minutes/todos
+  - in headers - Authorization Request Bearer and insert bearer token number
+- response - all todos
+
