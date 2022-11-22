@@ -504,3 +504,14 @@ Section 7: Docker with Java Spring Boot React Full Stack
   - in headers - Authorization Request Bearer and insert bearer token number
 - response - all todos
 
+37. Running React Frontend in Local
+--------------------------------------------------------------------------------
+- Connecting front end to back end using VS
+- Check VS version
+- cd into folder - npm install
+- npm start - 
+- updated npm version - npm install upd
+- issue with PORT not being an internal or external command
+  - to tackle this, added a .env file and PORT number in it. It read 3000 vs. port 4200?
+  - in package.json file, removed port number from start method
+
