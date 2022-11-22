@@ -534,6 +534,47 @@ Section 7: Docker with Java Spring Boot React Full Stack
 39. Creating Multi Stage Docker Build for React Frontend
 -------------------------------------------------------------------------------
 - Running container from front end
+- containerising front end app
+- nginx - run http server for web package
+- create package - npm install and npm run build
+- npm run build - builds minimized production package
+- front end reduced to packages
+- File sizes after gzip to be copied onto http server to run it:
+
+  74.56 KB  build\static\js\2.aecb81c7.chunk.js
+  3.26 KB   build\static\js\main.1b348827.chunk.js
+  764 B     build\static\js\runtime~main.c5541365.js
+  625 B     build\static\css\main.917b541b.chunk.css
+
+- Goal - keep docker image small because nodejs used to build package
+- multi stage build
+  - build image related to node js
+  - copy source file
+  - run npm install and npm run build
+  - create image in nginx container
+
+- run docker build .
+
+## Stage 1 - Lets build the "deployable package"
+FROM node:7.10 as frontend-build
+WORKDIR /fullstack/frontend
+
+# Step 1 - Download all package dependencies first.
+# We will redownload dependencies only when packages change.
+COPY package.json package-lock.json ./
+RUN npm install
+
+# Step 2 - Copy all source and run build
+COPY . ./
+RUN npm run build
+
+## Stage 2 - Let's build a minimal image with the "deployable package"
+FROM nginx:1.12-alpine
+COPY --from=frontend-build /fullstack/frontend/build /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
+
+  
 
 
 40. Improve Front End Docker Build - dockerignore
