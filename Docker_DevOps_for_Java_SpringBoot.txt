@@ -515,3 +515,39 @@ Section 7: Docker with Java Spring Boot React Full Stack
   - to tackle this, added a .env file and PORT number in it. It read 3000 vs. port 4200?
   - in package.json file, removed port number from start method
 
+38. Containerizing Java REST API Backend
+---------------------------------------------------------------------------
+- Launch application in Eclipse and Command prompt
+- Run both back end and front end in containers
+- Build container for REST API
+  - maven build in eclipse - build jar (goals: clean package)
+- ensure docker desktop is open 
+- docker run -p 8080:8080 <imagetag>
+- container should start up
+- had to kill port as there was something running
+- running in local and inside container - no changes
+- no need to run in same network - talk to each other
+- request to rest api is going out from browser not container
+- when talking to db, request goes from container - talking to another container
+- call specific api as exposed port 8080 on localhost - connect to browser
+
+39. Creating Multi Stage Docker Build for React Frontend
+-------------------------------------------------------------------------------
+- Running container from front end
+
+
+40. Improve Front End Docker Build - dockerignore
+
+41. Using Mult Stage Docker Build for Java REST API
+
+42. Running Java REST API Backend Docker Image
+
+43. Exploring Docker Compose
+
+44. Docker Compose Scale Command
+
+45. Running Full Stack Application with Docker Compose
+
+46. Using Docker Compose for Java Spring Boot
+
+47. Playing 
