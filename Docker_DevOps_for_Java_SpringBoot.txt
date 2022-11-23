@@ -621,7 +621,7 @@ CMD ["nginx", "-g", "daemon off;"]
 - reproducable build - 2 stage build
 
 42. Running Java REST API Backend Docker Image
-
+--------------------------------------------------------------------------------
 43. Exploring Docker Compose
 
 44. Docker Compose Scale Command
