@@ -596,8 +596,29 @@ CMD ["nginx", "-g", "daemon off;"]
 - changes to code, run build again and won't take long
 - Dockerfile - package.json and lock copied seperately
 - advantages - not dependent on local machine, can be run from anywhere
-- 
-41. Using Mult Stage Docker Build for Java REST API
+- docker run -p 4200:80 (container)in28min/todo-front-end:0.0.1-SNAPSHOT
+- rest api and front end running in container
+
+41. Using Multi Stage Docker Build for Java REST API
+---------------------------------------------------------------------------------
+- 2 stage build = platform independent
+- no need to build a file in a 2 stage build
+- docker build . 
+- maven plugins to be commented out - unzip
+- build will run 
+- Dockerfile - multi stage build
+- stage 1 - jdk build with maven
+          - copy code and run npm install
+- stage 2 - keep minimal possible image
+          - seperate files into stages - caching. 
+          - pom.xml 
+	  - mvn dependency: go - offline -B downloads dependencies needed
+	  - -B - batch mode
+          - copy source and npm install
+          - unzip jar into folder
+- advantage - can be run from anywhere
+- exact image retrieved by developers
+- reproducable build - 2 stage build
 
 42. Running Java REST API Backend Docker Image
 
