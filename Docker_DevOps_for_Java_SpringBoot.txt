@@ -521,6 +521,8 @@ Section 7: Docker with Java Spring Boot React Full Stack
 - Run both back end and front end in containers
 - Build container for REST API
   - maven build in eclipse - build jar (goals: clean package)
+- run tests, jar built, maven plug in kicks in and unpacks to target dependency folder 
+- spotify maven plug in creates docker image
 - ensure docker desktop is open 
 - docker run -p 8080:8080 <imagetag>
 - container should start up
@@ -574,11 +576,27 @@ COPY --from=frontend-build /fullstack/frontend/build /usr/share/nginx/html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
 
-  
-
-
 40. Improve Front End Docker Build - dockerignore
+--------------------------------------------------------------------------------
+- Create .dockerignore file - similar to gitignore
+- contains all that one does not want to send as a part of your build context
+- docker build took long as it send build context to daemon - all code
+- node used for first time
+- npm install - downloads all into node modules
+  - runs inside container and downloaded
+- copy source file
+- npm run build - node modules and source code used creating a build
+- download image
+- build folder copied
+- launch command to server done
 
+- docker build . -t in28min/todo-front-end:0.0.1-SNAPSHOT again - runs quicker
+
+- if no changes, build doesn't take long
+- changes to code, run build again and won't take long
+- Dockerfile - package.json and lock copied seperately
+- advantages - not dependent on local machine, can be run from anywhere
+- 
 41. Using Mult Stage Docker Build for Java REST API
 
 42. Running Java REST API Backend Docker Image
@@ -591,4 +609,4 @@ CMD ["nginx", "-g", "daemon off;"]
 
 46. Using Docker Compose for Java Spring Boot
 
-47. Playing 
+47. Playing with Docker Compose
