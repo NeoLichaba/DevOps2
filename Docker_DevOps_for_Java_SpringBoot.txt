@@ -618,11 +618,29 @@ CMD ["nginx", "-g", "daemon off;"]
           - unzip jar into folder
 - advantage - can be run from anywhere
 - exact image retrieved by developers
-- reproducable build - 2 stage build
+- reproducable build - use 2 stage build
 
 42. Running Java REST API Backend Docker Image
 --------------------------------------------------------------------------------
+- build context sent to docker daemon
+- jar file from target folder used
+- add dockerignore file and target folder
+- docker tag <imagename>:2stagebuild tag to be added to it
+- docker run -p 8080:8080 <imagetag>:2stagebuild
+- rest api will be started up
+- 
+
 43. Exploring Docker Compose
+---------------------------------------------------------------------------
+
+- docker compose - helps define and run multi container Docker applications
+- helps you manage lifecycle of microservices
+- use yaml file
+- multiple isolated environment on a single host
+- preserves volume data 
+- only recreates containers that have changed
+- variables and moving a composition between environments
+
 
 44. Docker Compose Scale Command
 
