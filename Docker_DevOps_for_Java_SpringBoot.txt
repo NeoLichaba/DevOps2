@@ -687,4 +687,15 @@ CMD ["nginx", "-g", "daemon off;"]
 - docker-compose images - idea of what images are being used
 - docker-compose ps - processes - list of running containers, ports, command being used
 - docker-compose top - all process running in each container 
-- docker-compose pause - pause containers, not responding to request 
+- docker-compose pause/unpause - pause containers, not responding to request 
+- docker-compose build - builds all applications, using cache
+  - number of services will be build. Individual builds not necessary
+
+
+******************************************************************************
+Section 8 - Docker - Run Java Spring Boot Microservices
+******************************************************************************
+
+48: Intro to Micro Services
+--------------------------------------------------------------------------------
+- 
