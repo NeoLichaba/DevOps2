@@ -781,3 +781,31 @@ Section 8 - Docker - Run Java Spring Boot Microservices
 - docker-compose up
 - app should start up
 - launch
+
+*********************************************************************************
+Section 9: Using Docker to Integrate Java microservices with Eureka Naming Server
+*********************************************************************************
+
+54. Understanding the need for Service Registry
+---------------------------------------------------------------------------------
+- microservice multiple instances
+- eureka naming server - service reg and service discover
+- service reg - reg eureka naming server, all instances registered
+- service discovery - know current line services, instances running and list returned, load then distributed
+- dynamic scale up and down
+  - naming server (eureka) - currently active feign services
+  - feign (easier REST clients) - client side 
+
+55. Create Docker Images for Eureka Naming Server
+
+56. Configure and Run Java Spring Boot Microservices with Eureka Service
+
+********************************************************************************
+Section 10: Using Docker to Integrate Java microservices with Zuul API Gateway
+********************************************************************************
+
+
+
+********************************************************************************
+Section 11: Using Docker to Integrate Java microservices with Zipkin
+********************************************************************************
