@@ -797,8 +797,25 @@ Section 9: Using Docker to Integrate Java microservices with Eureka Naming Serve
   - feign (easier REST clients) - client side 
 
 55. Create Docker Images for Eureka Naming Server
+------------------------------------------------------------------------------
+- creating naming server - spring cloud
+- @enableeurekaserver
+- port running
+- eureka - don't distribute
+- build image
+- add spring-cloud-data dependency
+
 
 56. Configure and Run Java Spring Boot Microservices with Eureka Service
+-------------------------------------------------------------------------------
+- docker-compose up
+- create network
+- docker-compose logs -f
+- services should be up and running
+- localhost:8761 - eureka will be up and running on port
+- launch - currency converter and exchange service
+- can't launch 2 instances on same port
+- 
 
 ********************************************************************************
 Section 10: Using Docker to Integrate Java microservices with Zuul API Gateway
