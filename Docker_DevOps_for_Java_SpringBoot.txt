@@ -759,3 +759,25 @@ Section 8 - Docker - Run Java Spring Boot Microservices
 
 53. Run Java Spring Boot Microservices using Docker Compose
 --------------------------------------------------------------------------------
+- edit docker-compose file in eclipse
+- in microservices folder
+- remove commented items and configure network
+- services:
+  - currency-exchange-service:
+  - image: in28min/currency-exchange-service:0.0.1-SNAPSHOT
+  - ports: -8000:8000
+  - currency-conversion-service:
+  - image: in28min/currency-exchange-service:0.0.1-SNAPSHOT 
+  - ports: 8100:8100
+  - depends_on: 
+  - currency-exchange-service
+  - networks:
+  - currency-compose network
+  - environment:
+    CURRENCY_EXCHANGE_URI: http//currency-exchange-service:8000 - uses currency exchange URI
+- docker container ls
+- docker container stop <image id>
+- docker container prune
+- docker-compose up
+- app should start up
+- launch
