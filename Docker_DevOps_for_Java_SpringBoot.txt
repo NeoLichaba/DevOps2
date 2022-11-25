@@ -696,6 +696,30 @@ CMD ["nginx", "-g", "daemon off;"]
 Section 8 - Docker - Run Java Spring Boot Microservices
 ******************************************************************************
 
-48: Intro to Micro Services
+48. Intro to Microservices
 --------------------------------------------------------------------------------
-- 
+- REST
+- Small deployable units
+- Cloud Enabled
+
+49. Advantages of Microservices
+--------------------------------------------------------------------------------
+- New tech and process adaptation
+  - Each MS can communicate with each other - built in diff technologies/languages
+  - bring in new processes
+
+- Dynamic Scaling 
+  - number of users over different times 
+  - ms cloud enabled, scaled dynamically
+  - scale up/down, based on the load
+
+- Faster Release Cycles
+
+50. Understanding Docker and Microservices - a combo
+--------------------------------------------------------------------------------
+- Docker plays a crucial role in solving a number of those challenges.
+- Might need to do multiple deployments and that's where Docker helps
+- Makes adopting new tech faster - build an image where there are multiple tech/languages used
+- Fewer environment issues
+- Easier operations 
+- Docker provides flexibility for ms architecture 
