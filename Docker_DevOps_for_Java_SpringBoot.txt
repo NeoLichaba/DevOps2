@@ -723,3 +723,16 @@ Section 8 - Docker - Run Java Spring Boot Microservices
 - Fewer environment issues
 - Easier operations 
 - Docker provides flexibility for ms architecture 
+
+51. Overview of CCS and CES Spring Boot Microservices
+---------------------------------------------------------------------------------
+- CCS - Currency Conversion Service
+  - converts a bucket 
+- CES - Currency Exchange Service - talks to H2 database
+
+
+52. Create Docker Images and Containers for Java Spring Boot Microservices
+---------------------------------------------------------------------------------
+
+53. Run Java Spring Boot Microservices using Docker Compose
+--------------------------------------------------------------------------------
