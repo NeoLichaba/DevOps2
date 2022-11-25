@@ -643,8 +643,37 @@ CMD ["nginx", "-g", "daemon off;"]
 
 
 44. Docker Compose Scale Command
+----------------------------------------------------------------------------
+- use docker-compose up -d --scale servicename=3 
+
 
 45. Running Full Stack Application with Docker Compose
+------------------------------------------------------------------------------
+- install docker compose
+- 2 things configured at high level - services and networks
+- services - all components run as docker compose file - api, front end
+- front end - create image
+  - build: 
+    - context: front-end/todo-app (path)
+    - dockerfile: Dockerfile 
+  - port
+  - restart
+  - depends on:
+  - network - associated with container created for frontend app
+  - todo api launched after todo app successfully launched
+- cd into docker compose folder
+- docker images - to ensure images are present
+- docker-compose up - network created, app launched
+- docker container ls - check running containers
+- launch applications
+- docker-compose up -d - launched in detached mode
+- docker network ls - det created network
+- docker inspect <network id>
+- docker-compose down - stops containers and network removed
+
+
+- network - create network along docker compose file
+- 
 
 46. Using Docker Compose for Java Spring Boot
 
