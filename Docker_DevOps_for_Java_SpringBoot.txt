@@ -729,10 +729,33 @@ Section 8 - Docker - Run Java Spring Boot Microservices
 - CCS - Currency Conversion Service
   - converts a bucket 
 - CES - Currency Exchange Service - talks to H2 database
-
+- run applications
+- http://localhost:8000/currency-exchange/from/USD/to/INR - ask curr exchange of value
+- http://localhost:8100/currency-converter/from/EUR/to/INR/quantity/10 - total qty of 10
+  - calls currency exchange service
+- ExchangeValueRepository - JPARepo - Spring Data
+- ExchangeValue
+- Data obtained from datasql - loaded at data start up
+- CurrencyConversionController - makes used of currency conversion proxy
+  - calls currency exchange service proxy uses fing which makes it easier to call other rest apis
+  - call to different host
+  
 
 52. Create Docker Images and Containers for Java Spring Boot Microservices
 ---------------------------------------------------------------------------------
+- check version of spring boot
+- build images - spotifymaven plug in in both folders
+- cd into both folders
+- build packages for both files
+- docker images should be created for both files
+- cd into main folder - microservices
+- docker network create currency-network
+- docker run -p 8000:8000 --network=currency-network --name=currency-exchange-service -d in28min/currency-conversion-service:0.0.1-SNAPSHOT
+- launch currencyexchangeservice
+- launch in detached mode -d
+- docker container rm <container tag>
+- docker run -p 8100:8100 --network=currency-network --name=currency-exchange-service --env CURRENCY_EXCHANGE_URI=http://currency-exchange-service:8000 -d in28min/currency-conversion-service:0.0.1-SNAPSHOT
+- docker container logs -f <containerid>
 
 53. Run Java Spring Boot Microservices using Docker Compose
 --------------------------------------------------------------------------------
