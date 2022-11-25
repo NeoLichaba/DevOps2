@@ -822,6 +822,53 @@ Section 10: Using Docker to Integrate Java microservices with Zuul API Gateway
 ********************************************************************************
 
 
+57. Configure CES and CCS microservices with Zuul API
+---------------------------------------------------------------------------------
+- API Gateways
+  - authentication
+  - rate limits - client can call the service only x in a day
+  - fault tolerance
+  - service aggregation
+  - logging.
+
+
+- API Gateway implementations is Zuul.
+- in pom.xml for this, dependency, spring-cloud-starter-netflix-zuul
+- Zuul proxy - able to do the API gateway and we enabled discovery client
+- connect to Eureka server. One simple configuration = sampler always
+- ZuulLoggingFilter - Whenever Currency Conversion Service calls the Currency Exchange Service, log the request.
+- implement complex features like authentication here.
+- few of the methods which are defined inside the Zuul filter.
+
+- The methods are shouldFilter; should the filter be executed or not.
+
+- execute the filter. In the run method is where we are implementing the logic.
+
+- request, log it, and in the filter type, we are specifying pre.
+
+- two types of filters:
+
+- One is pre filter and the other one is the post filter.
+- intercept the request before executing it
+- filters, if I have 10 filters in this specific application, you can configure a
+  order.
+- application.properties, configured a port of 8765 - standard Zuul port.
+
+- directly enabled the defaultZone connection to Eureka. 
+- connecting to the naming server which is present down here. Whenever we call a service,
+  for example, we are calling the currency-exchange-service, we are configuring a timeout.
+
+- update the currency-conversion-service to use Zuul.
+-  build images. We did not make any changes on the currency-exchange
+- open up a new terminal for the netflix-zuul-server 
+
+- Dockerfile and we also configured the Spotify Docker plugin.
+
+
+
+58. Use Docker Compose to Run Microservices
+--------------------------------------------------------------------------------
+- 
 
 ********************************************************************************
 Section 11: Using Docker to Integrate Java microservices with Zipkin
