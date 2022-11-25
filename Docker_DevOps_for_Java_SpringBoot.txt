@@ -671,10 +671,20 @@ CMD ["nginx", "-g", "daemon off;"]
 - docker inspect <network id>
 - docker-compose down - stops containers and network removed
 
+46. Using Docker Compose for Java Spring Boot - MySQL
+--------------------------------------------------------------------------------
+- volumes defined - save mysql data into host
+- ensure in folder
+- docker-compose up - network and volume created
+- web app depends on mysql
 
-- network - create network along docker compose file
-- 
-
-46. Using Docker Compose for Java Spring Boot
 
 47. Playing with Docker Compose
+--------------------------------------------------------------------------------
+- docker-compose down - stops running containers, remove and remove network
+- docker-compose events - see what events happening 
+- docker-compose config - evaluate any errors, configs
+- docker-compose images - idea of what images are being used
+- docker-compose ps - processes - list of running containers, ports, command being used
+- docker-compose top - all process running in each container 
+- docker-compose pause - pause containers, not responding to request 
